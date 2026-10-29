@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fe2c55">
+  <meta name="description" content="Loja independente de recargas digitais. Não oficial e não afiliada ao TikTok.">
+  <title>Coin Store — Recargas independentes</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="notice"><strong>Aviso:</strong> serviço independente e não oficial. Não somos afiliados, endossados ou operados pelo TikTok.</div>
+  <header class="topbar">
+    <a class="logo" href="#recarga" data-page="recarga" aria-label="Início"><span class="logo-mark">C</span><span>coin<span>store</span></span></a>
+    <nav class="desktop-nav">
+      <a href="#recarga" data-page="recarga">Recarga</a><a href="#historico" data-page="historico">Pedidos</a><a href="#indicacoes" data-page="indicacoes">Indicações</a>
+    </nav>
+    <div class="user-area">
+      <div class="balance"><span class="coin">●</span><span id="header-balance">—</span><small> moedas</small></div>
+      <button class="profile-button" id="profile-button" aria-label="Abrir perfil"><span id="avatar">?</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page active" id="page-recarga">
+      <div class="welcome">
+        <div><div class="eyebrow">RECARGA DIGITAL</div><h1>Moedas para sua próxima live</h1><p>Escolha um pacote e continue pelo checkout seguro do provedor de pagamento.</p></div>
+        <div class="hero-coin" aria-hidden="true"><span>●</span><b>¢</b></div>
+      </div>
+      <div class="section-title"><div><h2>Selecione um pacote</h2><p>Preços exibidos em reais (BRL).</p></div><span class="secure">⌑ Checkout externo</span></div>
+      <div class="packages" id="packages"><div class="loading">Carregando pacotes…</div></div>
+      <p class="small-print">As moedas são créditos desta loja independente, não moedas oficiais da plataforma TikTok. Verifique os termos do serviço e a elegibilidade do produto antes de comprar.</p>
+    </section>
+
+    <section class="page" id="page-login">
+      <div class="auth-card">
+        <button class="back-button" data-page="recarga">← Voltar à recarga</button>
+        <div class="eyebrow">BEM-VINDO DE VOLTA</div><h1>Entrar na sua conta</h1><p class="muted">Entre para continuar com o pacote escolhido.</p>
+        <form id="login-form"><label>E-mail<input name="email" type="email" autocomplete="email" required maxlength="254"></label><label>Senha<input name="password" type="password" autocomplete="current-password" required maxlength="128"></label><button class="pink-button full" type="submit">Entrar</button><p class="form-message" id="login-message"></p></form>
+        <div class="auth-links"><button data-page="forgot">Esqueci minha senha</button><button data-page="cadastro">Criar conta</button></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-cadastro">
+      <div class="auth-card">
+        <button class="back-button" data-page="recarga">← Voltar</button>
+        <div class="eyebrow">CRIE SUA CONTA</div><h1>Cadastre-se</h1><p class="muted">Uma conta permite consultar pedidos e saldo.</p>
+        <form id="register-form"><label>Nome<input name="name" autocomplete="name" required minlength="2" maxlength="80"></label><label>E-mail<input name="email" type="email" autocomplete="email" required maxlength="254"></label><label>Senha <small>(mínimo 10 caracteres)</small><input name="password" type="password" autocomplete="new-password" required minlength="10" maxlength="128"></label><button class="pink-button full" type="submit">Criar conta</button><p class="form-message" id="register-message"></p></form>
+        <p class="muted small">Ao criar uma conta, você concorda em usar este serviço independente. Não crie várias contas para tentar obter recompensas.</p>
+      </div>
+    </section>
+
+    <section class="page" id="page-forgot">
+      <div class="auth-card">
+        <button class="back-button" data-page="login">← Voltar ao login</button>
+        <div class="eyebrow">RECUPERAÇÃO DE CONTA</div><h1>Redefinir senha</h1><p class="muted">Enviaremos instruções se o e-mail estiver cadastrado.</p>
+        <form id="forgot-form"><label>E-mail<input name="email" type="email" autocomplete="email" required maxlength="254"></label><button class="pink-button full" type="submit">Enviar instruções</button><p class="form-message" id="forgot-message"></p></form>
+      </div>
+    </section>
+
+    <section class="page" id="page-perfil">
+      <div class="section-title"><div><div class="eyebrow">SUA CONTA</div><h1>Perfil</h1></div></div>
+      <div class="panel profile-panel"><div class="big-avatar" id="profile-avatar">?</div><div class="profile-data"><h2 id="profile-name">—</h2><p id="profile-email" class="muted">—</p><p class="balance-large"><span class="coin">●</span> <strong id="profile-balance">0</strong> moedas</p><p class="muted small">Serviço independente e não oficial.</p></div></div>
+      <div class="panel"><h3>Segurança</h3><p class="muted">Sua senha é armazenada como hash no servidor. Use sair da conta ao utilizar um dispositivo compartilhado.</p><button id="logout-button" class="outline-button">Sair da conta</button></div>
+    </section>
+
+    <section class="page" id="page-historico">
+      <div class="section-title"><div><div class="eyebrow">ATIVIDADE DA CONTA</div><h1>Histórico de pedidos</h1><p>O status só muda para pago após confirmação autêntica no servidor.</p></div></div>
+      <div class="panel table-panel" id="orders-list"><div class="empty">Entre para consultar seus pedidos.</div></div>
+      <div class="integration-note" id="payment-status"></div>
+    </section>
+
+    <section class="page" id="page-indicacoes">
+      <div class="section-title"><div><div class="eyebrow">COMPARTILHE E GANHE</div><h1>Indicações</h1><p>Recompensas são liberadas somente após confirmação de compras válidas.</p></div></div>
+      <div class="referral-hero panel"><div><span class="coin large">●</span><h2>700 moedas de recompensa</h2><p class="muted">A cada 3 compradores indicados diferentes, depois que as 3 compras forem confirmadas.</p></div><div class="ref-progress"><strong id="ref-progress">0/3</strong><span>compradores qualificados até a próxima recompensa</span></div></div>
+      <div class="panel"><h3>Seu link de indicação</h3><p class="muted">Compartilhe com pessoas reais. Autoindicação, contas duplicadas e fraude não são permitidas.</p><div class="copy-row"><input id="ref-link" readonly value="Faça login para ver seu link"><button class="pink-button" id="copy-ref">Copiar</button></div><p class="form-message" id="ref-message"></p><div class="stats"><div><span id="ref-signups">0</span><small>cadastros indicados</small></div><div><span id="ref-buyers">0</span><small>compradores qualificados</small></div><div><span id="ref-pending">0</span><small>compras pendentes</small></div></div></div>
+      <div class="panel"><h3>Resgate inicial de 700 moedas</h3><p class="muted">O pedido de resgate é sujeito a análise contra abuso. Nesta versão, não há crédito automático de moedas grátis.</p><button class="pink-button" id="claim-free">Solicitar resgate grátis</button><p class="form-message" id="claim-message"></p></div>
+      <div class="integration-note">As recompensas por indicação aguardam a configuração do webhook oficial de pagamento. Compras pendentes, canceladas ou reembolsadas não devem contar.</div>
+    </section>
+  </main>
+
+  <nav class="mobile-nav" aria-label="Navegação móvel"><button data-page="recarga"><span>◈</span>Recarga</button><button data-page="historico"><span>▤</span>Pedidos</button><button data-page="indicacoes"><span>♧</span>Indicações</button><button data-page="perfil"><span>◉</span>Perfil</button></nav>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
